@@ -6,16 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.example.core.utils.RequestUtils;
-import org.example.database.auth.api.dto.JoinParamDTO;
 import org.example.database.auth.database.rep.jpa.auth.AuthEntity;
 import org.example.database.auth.database.rep.jpa.wallet.WalletEntity;
 import org.example.database.common.rep.jpa.CommonDateEntity;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
-import java.net.Inet4Address;
-import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -71,73 +67,6 @@ public class UserEntity extends CommonDateEntity {
 
     public void setWalletEntity(final WalletEntity walletEntity) {
         this.walletEntity = walletEntity;
-    }
-
-    public static UserEntity ofUser(JoinParamDTO joinParamDTO) {
-        UserEntity userEntity = null;
-        try {
-            userEntity = UserEntity.builder()
-                    .email(joinParamDTO.getUserEmail())
-                    .password(joinParamDTO.getUserPassword())
-                    .name(joinParamDTO.getUserName())
-                    .phone(joinParamDTO.getUserPhone())
-                    .nick(joinParamDTO.getUserNick())
-//                    .ip(Inet4Address.getLocalHost().getHostAddress())
-                    .ip(RequestUtils.getClientIP())
-//                    .block("N")
-                    .build();
-            userEntity.setWalletEntity(WalletEntity.builder().point(Long.valueOf(10000)).userEntity(userEntity).build());
-            userEntity.addAuth(AuthEntity.ofUser(userEntity));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
-        return userEntity;
-    }
-
-    public static UserEntity ofSocial(JoinParamDTO joinParamDTO) {
-        UserEntity userEntity = null;
-        try {
-            userEntity = UserEntity.builder()
-                    .email(joinParamDTO.getUserEmail())
-                    .password(joinParamDTO.getUserPassword())
-                    .name(joinParamDTO.getUserName())
-                    .phone(joinParamDTO.getUserPhone())
-                    .nick(joinParamDTO.getUserNick())
-//                    .ip(Inet4Address.getLocalHost().getHostAddress())
-                    .ip(RequestUtils.getClientIP())
-//                    .block("N")
-                    .build();
-            userEntity.setWalletEntity(WalletEntity.builder().point(Long.valueOf(10000)).userEntity(userEntity).build());
-            userEntity.addAuth(AuthEntity.ofUser(userEntity));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
-        return userEntity;
-    }
-
-    public static UserEntity ofAdmin(JoinParamDTO joinParamDTO) {
-        UserEntity userEntity = null;
-        try {
-            userEntity = UserEntity.builder()
-                    .email(joinParamDTO.getUserEmail())
-                    .password(joinParamDTO.getUserPassword())
-                    .name(joinParamDTO.getUserName())
-                    .phone(joinParamDTO.getUserPhone())
-                    .nick(joinParamDTO.getUserNick())
-                    .ip(Inet4Address.getLocalHost().getHostAddress())
-//                    .block("N")
-                    .build();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-        userEntity.setWalletEntity(WalletEntity.builder().point(Long.valueOf(10000)).userEntity(userEntity).build());
-        userEntity.addAuth(AuthEntity.ofAdmin(userEntity));
-        return userEntity;
     }
 
     private void addAuth(AuthEntity userAuthEntity) {
