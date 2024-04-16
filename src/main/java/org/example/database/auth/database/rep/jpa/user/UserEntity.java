@@ -69,7 +69,7 @@ public class UserEntity extends CommonDateEntity {
         this.walletEntity = walletEntity;
     }
 
-    private void addAuth(AuthEntity userAuthEntity) {
+    public void addAuth(AuthEntity userAuthEntity) {
         role.add(userAuthEntity);
     }
 
