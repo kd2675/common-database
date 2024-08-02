@@ -31,8 +31,7 @@ public class UserEntity extends CommonDateEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "oauth2_id", unique = true)
-    @ColumnDefault("''")
+    @Column(name = "oauth2_id", unique = true, nullable = true)
     private String oAuth2Id;
 
     @Column(name = "email", nullable = false, length = 45, unique = true)
