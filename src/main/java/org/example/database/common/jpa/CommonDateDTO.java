@@ -1,4 +1,4 @@
-package org.example.database.common.rep.jpa;
+package org.example.database.common.jpa;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

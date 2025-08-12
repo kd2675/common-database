@@ -1,11 +1,10 @@
-package org.example.database.auth.database.rep.jpa.user;
+package org.example.database.database.auth.dto;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.example.database.auth.database.rep.jpa.auth.AuthDTO;
-import org.example.database.auth.database.rep.jpa.wallet.WalletDTO;
-import org.example.database.common.rep.jpa.CommonDateDTO;
-import org.example.database.common.rep.jpa.CommonDateEntity;
+import org.example.database.common.jpa.CommonDateDTO;
+import org.example.database.common.jpa.CommonDateEntity;
+import org.example.database.database.auth.entity.UserEntity;
 
 import java.util.Set;
 import java.util.stream.Collectors;

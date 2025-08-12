@@ -1,4 +1,4 @@
-package org.example.database.auth.database.rep.redis.refresh;
+package org.example.database.database.auth.redis;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -10,23 +10,23 @@ import org.springframework.data.redis.core.TimeToLive;
 
 
 @Getter
-@RedisHash("refreshToken")
+@RedisHash("logoutAccessToken")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RefreshTokenRedis {
+public class LogoutAccessTokenRedis {
     @Id
     private String id;
 
-    private String refreshToken;
+    private String userEmail;
 
     @TimeToLive
     private Long expiration;
 
-    public static RefreshTokenRedis createRefreshToken(String userEmail, String refreshToken, Long remainingMilliSeconds) {
-        return RefreshTokenRedis.builder()
-                .id(userEmail)
-                .refreshToken(refreshToken)
+    public static LogoutAccessTokenRedis of(String accessToken, String userEmail, Long remainingMilliSeconds) {
+        return LogoutAccessTokenRedis.builder()
+                .id(accessToken)
+                .userEmail(userEmail)
                 .expiration(remainingMilliSeconds / 1000)
                 .build();
     }

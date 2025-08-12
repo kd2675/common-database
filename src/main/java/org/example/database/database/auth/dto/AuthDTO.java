@@ -1,7 +1,8 @@
-package org.example.database.auth.database.rep.jpa.auth;
+package org.example.database.database.auth.dto;
 
 import lombok.Getter;
 import lombok.ToString;
+import org.example.database.database.auth.entity.AuthEntity;
 
 @Getter
 @ToString

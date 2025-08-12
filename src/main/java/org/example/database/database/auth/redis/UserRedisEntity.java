@@ -1,4 +1,4 @@
-package org.example.database.auth.database.rep.redis.user;
+package org.example.database.database.auth.redis;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;

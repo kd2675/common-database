@@ -1,4 +1,4 @@
-package org.example.database.auth.database.rep.jpa.user;
+package org.example.database.database.auth.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -6,9 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.example.database.auth.database.rep.jpa.auth.AuthEntity;
-import org.example.database.auth.database.rep.jpa.wallet.WalletEntity;
-import org.example.database.common.rep.jpa.CommonDateEntity;
+import org.example.database.common.jpa.CommonDateEntity;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 

@@ -1,4 +1,4 @@
-package org.example.database.common.rep.jpa;
+package org.example.database.common.jpa;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;

@@ -1,10 +1,7 @@
-package org.example.database.auth.database.rep.jpa.auth;
+package org.example.database.database.auth.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.database.auth.database.rep.jpa.user.UserEntity;
-import org.springframework.security.core.GrantedAuthority;
-
 
 @Getter
 @Builder
@@ -12,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "PUB_AUTH_TB")
-public class AuthEntity implements GrantedAuthority {
+public class AuthEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +23,6 @@ public class AuthEntity implements GrantedAuthority {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
-    @Override
     public String getAuthority() {
         return role;
     }
